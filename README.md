@@ -19,20 +19,13 @@ Inventory_Demand_Forecasting/
 ├── main.py
 ├── config.py
 ├── data/
-│   ├── raw/
-│   │   └── inventory_sales.csv
-│   └── processed/
-│       └── inventory_sales_cleaned.csv
-├── src/
-│   ├── __init__.py
-│   ├── data_loader.py
-│   ├── preprocessing.py
-│   ├── analysis.py
-│   └── visualization.py
+│   ├── data_dictionary.csv
+│   │   
+│   └── inventory_data.csv
+│       
 ├── outputs/
 │   ├── charts/
 │   └── results/
-├── logs/
 ├── requirements.txt
 ├── PROJECT_REPORT.md
 └── STEP_BY_STEP.md
