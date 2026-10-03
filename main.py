@@ -2,11 +2,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-
-# ============================================================
-# 1. SETTINGS
-# ============================================================
-
 INPUT_FILE = "data/inventory_data.csv"
 
 CLEAN_FILE = "output/cleaned_inventory_data.csv"
@@ -22,19 +17,10 @@ OUTPUT_FOLDER = "output"
 CHART_FOLDER = "output/charts"
 
 
-# ============================================================
-# 2. CREATE OUTPUT FOLDERS
-# ============================================================
-
 import os
 
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 os.makedirs(CHART_FOLDER, exist_ok=True)
-
-
-# ============================================================
-# 3. LOAD DATA
-# ============================================================
 
 print("Loading dataset...")
 
@@ -42,11 +28,6 @@ df = pd.read_csv(INPUT_FILE)
 
 print("Raw records:", len(df))
 print("Columns:", list(df.columns))
-
-
-# ============================================================
-# 4. DATA CLEANING
-# ============================================================
 
 print("\nCleaning data...")
 
@@ -82,11 +63,6 @@ print("Cleaned records:", len(df))
 # Save cleaned data
 df.to_csv(CLEAN_FILE, index=False)
 
-
-# ============================================================
-# 5. BASIC DATA INFORMATION
-# ============================================================
-
 print("\n================ DATA INFORMATION ================")
 
 print("Number of products:",
@@ -106,11 +82,6 @@ print("Average daily sales:",
 
 print("Average inventory:",
       df["Inventory"].mean())
-
-
-# ============================================================
-# 6. PRODUCT SUMMARY
-# ============================================================
 
 product_summary = df.groupby("Product_ID").agg(
     Total_Sales=("Sales", "sum"),
@@ -187,19 +158,9 @@ product_summary.to_csv(
     index=False
 )
 
-
-# ============================================================
-# 7. DAILY SALES
-# ============================================================
-
 daily_sales = df.groupby("Date")["Sales"].sum().reset_index()
 
 daily_sales = daily_sales.sort_values("Date")
-
-
-# ============================================================
-# 8. MOVING AVERAGE
-# ============================================================
 
 daily_sales["Moving_Average_3"] = (
     daily_sales["Sales"]
@@ -224,11 +185,6 @@ daily_sales.to_csv(
     f"{OUTPUT_FOLDER}/daily_sales_analysis.csv",
     index=False
 )
-
-
-# ============================================================
-# 9. FUTURE FORECAST
-# ============================================================
 
 last_7_days = daily_sales["Sales"].tail(
     FORECAST_WINDOW
@@ -260,10 +216,6 @@ future_forecast.to_csv(
 )
 
 
-# ============================================================
-# 10. MONTHLY DEMAND
-# ============================================================
-
 df["Month"] = df["Date"].dt.to_period("M").astype(str)
 
 monthly_demand = (
@@ -277,10 +229,6 @@ monthly_demand.to_csv(
     index=False
 )
 
-
-# ============================================================
-# 11. WEEKDAY DEMAND
-# ============================================================
 
 df["Weekday"] = df["Date"].dt.day_name()
 
@@ -314,9 +262,6 @@ weekday_demand.to_csv(
 )
 
 
-# ============================================================
-# 12. PRODUCT TREND ANALYSIS
-# ============================================================
 
 trend_results = []
 
@@ -386,10 +331,6 @@ product_trends.to_csv(
 )
 
 
-# ============================================================
-# 13. FORECAST VALIDATION
-# ============================================================
-
 validation_results = []
 
 for product in df["Product_ID"].unique():
@@ -447,10 +388,6 @@ validation.to_csv(
 )
 
 
-# ============================================================
-# 14. BUSINESS INSIGHTS
-# ============================================================
-
 print("\n================ BUSINESS INSIGHTS ================")
 
 highest_sales_product = (
@@ -496,10 +433,6 @@ print(
 )
 
 
-# ============================================================
-# 15. CHART 1 - DAILY SALES TREND
-# ============================================================
-
 plt.figure(figsize=(12, 6))
 
 plt.plot(
@@ -523,10 +456,6 @@ plt.savefig(
 
 plt.close()
 
-
-# ============================================================
-# 16. CHART 2 - MOVING AVERAGE
-# ============================================================
 
 plt.figure(figsize=(12, 6))
 
@@ -567,10 +496,6 @@ plt.savefig(
 plt.close()
 
 
-# ============================================================
-# 17. CHART 3 - TOP PRODUCTS
-# ============================================================
-
 top_products = product_summary.head(
     TOP_PRODUCT_COUNT
 )
@@ -599,9 +524,6 @@ plt.savefig(
 plt.close()
 
 
-# ============================================================
-# 18. CHART 4 - MONTHLY DEMAND
-# ============================================================
 
 plt.figure(figsize=(12, 6))
 
@@ -627,10 +549,6 @@ plt.savefig(
 
 plt.close()
 
-
-# ============================================================
-# 19. CHART 5 - INVENTORY LEVEL
-# ============================================================
 
 daily_inventory = (
     df.groupby("Date")["Inventory"]
@@ -661,10 +579,6 @@ plt.savefig(
 
 plt.close()
 
-
-# ============================================================
-# 20. CHART 6 - ACTUAL VS FORECAST
-# ============================================================
 
 history = daily_sales.tail(
     FORECAST_CHART_DAYS := 30
@@ -704,10 +618,6 @@ plt.savefig(
 plt.close()
 
 
-# ============================================================
-# 21. PROJECT SUMMARY
-# ============================================================
-
 summary = {
     "Raw Records": len(pd.read_csv(INPUT_FILE)),
     "Cleaned Records": len(df),
@@ -732,10 +642,6 @@ summary_df.to_csv(
     index=False
 )
 
-
-# ============================================================
-# 22. FINISHED
-# ============================================================
 
 print("\n================================================")
 print("INVENTORY DEMAND FORECASTING COMPLETED")
