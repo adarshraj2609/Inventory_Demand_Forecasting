@@ -1,5 +1,5 @@
 Column,Type,Description
-Date,Int,Daily sales and inventory date
-Product_ID,Int,Unique product identifier
-Sales,Int,Number of units sold on the date
-Inventory,Int,Inventory quantity available
+Date,Date,Daily sales and inventory date
+Product_ID,String,Unique product identifier
+Sales,Float,Number of units sold on the date
+Inventory,Float,Inventory quantity available
