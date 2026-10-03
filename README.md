@@ -98,14 +98,15 @@ After `python main.py`, the project creates:
 
 ### Result tables
 
-- `product_summary.csv`
+- `cleanned_inventory_data.csv`
 - `demand_forecast.csv`
 - `monthly_demand.csv`
 - `weekday_demand.csv`
 - `product_trends.csv`
 - `forecast_validation.csv`
-- `project_validation.json`
-- `business_insights.txt`
+- `project_summary.csv`
+- `daily_sales_analysis`
+- 
 
 ## Configuration
 
