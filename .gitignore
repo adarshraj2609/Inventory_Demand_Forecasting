@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+env/
+.vscode/
+.DS_Store
+
+# Runtime logs
+logs/*.log
+
+# Optional local Python cache
+.pytest_cache/
