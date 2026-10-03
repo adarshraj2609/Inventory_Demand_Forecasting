@@ -155,3 +155,4 @@ The generated result files support analysis of:
 9. Potentially over-stocked products.
 10. Products that require closer monitoring.
 11. Baseline forecast accuracy using MAE and RMSE.
+# Inventory_Forecast
