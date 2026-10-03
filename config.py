@@ -24,16 +24,10 @@ FORECAST_CHART_HISTORY_DAYS = 120
 
 DATE_COLUMN = "Date"
 PRODUCT_COLUMN = "Product_ID"
-TARGET_COLUMN = "Units_Sold"
 
 REQUIRED_COLUMNS = [
     "Date",
     "Product_ID",
-    "Product_Name",
-    "Category",
-    "Units_Sold",
-    "Opening_Stock",
-    "Closing_Stock",
-    "Reorder_Level",
-    "Unit_Price",
+    "Sales",
+    "Inventory"
 ]
