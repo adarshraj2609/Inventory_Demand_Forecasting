@@ -1,4 +1,4 @@
-# Inventory Demand Forecasting Using Python, Pandas and Time-Series Analysis
+# Inventory Demand Forecasting Using Python, Pandas and Matplotlib
 
 An industry-style, modular Python project for analyzing historical product demand, calculating moving averages, generating a simple 7-day baseline forecast, comparing demand with inventory, and identifying products that require closer stock monitoring.
 
