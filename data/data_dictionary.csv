@@ -1,10 +1,5 @@
 Column,Type,Description
-Date,date,Daily sales and inventory date
-Product_ID,string,Unique product identifier
-Product_Name,string,Product name
-Category,string,Product category
-Units_Sold,float,Number of units sold on the date
-Opening_Stock,float,Inventory quantity at start of the day
-Closing_Stock,float,Inventory quantity at end of the day
-Reorder_Level,float,Stock level used for reorder monitoring
-Unit_Price,float,Price per unit
+Date,Int,Daily sales and inventory date
+Product_ID,Int,Unique product identifier
+Sales,Int,Number of units sold on the date
+Inventory,Int,Inventory quantity available
