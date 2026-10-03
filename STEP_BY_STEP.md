@@ -55,14 +55,8 @@ The columns are:
 ```text
 Date
 Product_ID
-Product_Name
-Category
-Units_Sold
-Opening_Stock
-Closing_Stock
-Reorder_Level
-Unit_Price
-```
+Sales
+Inventory
 
 ## Step 7: Run the complete project
 
