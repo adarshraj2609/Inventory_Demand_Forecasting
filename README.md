@@ -106,7 +106,6 @@ After `python main.py`, the project creates:
 - `forecast_validation.csv`
 - `project_summary.csv`
 - `daily_sales_analysis`
-- 
 
 ## Configuration
 
